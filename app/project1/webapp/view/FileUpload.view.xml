@@ -1,0 +1,117 @@
+<mvc:View
+    controllerName="project1.controller.FileUpload"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:uiTable="sap.ui.table"
+    xmlns:u="sap.ui.unified">
+
+    <f:DynamicPage showFooter="true">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="Batch Upload" level="H2"/>
+                </f:heading>
+                <f:snappedContent>
+                    <ObjectStatus text="Ready for Upload" state="Information"/>
+                </f:snappedContent>
+            </f:DynamicPageTitle>
+        </f:title>
+
+   
+        <f:content>
+            <VBox class="sapUiMediumMargin">
+
+              
+                <Panel
+                    headerText="Upload Actions"
+                    expandable="false"
+                    class="sapUiNoContentPadding sapUiResponsiveMargin"
+                    width="100%">
+                    <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMargin">
+
+                    
+                        <VBox class="sapUiSmallMarginEnd">
+                          <MessageStrip 
+  text="* Instruction: This is the approved version of template to load batch data, you can download and upload in portal"
+  type="Information"
+  showIcon="true"
+  showCloseButton="false"
+  class="sapUiSmallMarginBottom"
+/>
+                            <Button
+                                id="downloadbtn"
+                                text="Download Approved Template"
+                                type="Emphasized"
+                                icon="sap-icon://download"
+                                press="onDownloadSample"/>
+                        </VBox>
+
+                      
+                        <VBox class="sapUiSmallMarginEnd">
+                            <Label text="Upload Your File" class="sapUiTinyMarginBottom"/>
+                            <u:FileUploader
+                                id="fileUploader"
+                                name="myFileUpload"
+                                fileType="xlsx"
+                                width="280px"
+                                change="onFileUpload"
+                                placeholder="Choose XLSX file"/>
+                        </VBox>
+                    </HBox>
+                </Panel>
+
+             
+                <Panel
+                    expandable="true"
+                    expanded="true"
+                    class="sapUiNoContentPadding sapUiResponsiveMargin sapUiMediumMarginTop"
+                    width="100%">
+
+                     <headerToolbar>
+        <Toolbar>
+            <Title text="Uploaded Data Preview"/>
+            <ToolbarSpacer/>
+            <Button id="downloadexcel" enabled="false"
+                text="Download Excel"
+                icon="sap-icon://download"
+                type="Transparent"
+                press="onDownloadExcelData"/>
+        </Toolbar>
+    </headerToolbar>
+   
+                    <uiTable:Table
+                        id="excelTable"
+                        rows="{excelModel>/data}"
+                        visibleRowCount="10"
+                        columnHeaderHeight="35"
+                        rowHeight="35"
+                        selectionMode="None"
+                        width="100%"
+                        alternateRowColors="true"
+                        showNoData="true"/>
+                </Panel>
+
+            </VBox>
+        </f:content>
+
+  
+        <f:footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button
+                    text="Reset"
+                    icon="sap-icon://reset"
+                    type="Transparent"
+                    press="onReset"/>
+                <Button
+                    text="Submit"
+                    type="Accept"
+                    icon="sap-icon://action"
+                    press="onSubmitData" enabled="false" id="submitBtn"/>
+            </Toolbar>
+        </f:footer>
+
+    </f:DynamicPage>
+</mvc:View>

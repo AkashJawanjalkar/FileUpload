@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog
+        title="Select Packing Site"
+        items="{packingSiteModel>/packingSites}"
+        search="onPackingSiteSearch"
+        confirm="onPackingSiteSelect"
+        cancel="onPackingSiteCancel">
+        <StandardListItem
+            title="{packingSiteModel>id}"
+            description="{packingSiteModel>name}"
+            iconDensityAware="false"
+            iconInset="false"/>
+    </SelectDialog>
+</core:FragmentDefinition>

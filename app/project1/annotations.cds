@@ -1,0 +1,1 @@
+using CMOService as service from '../../srv/service';

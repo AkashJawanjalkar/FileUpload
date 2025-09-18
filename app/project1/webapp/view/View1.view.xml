@@ -1,0 +1,39 @@
+<mvc:View controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" xmlns:core="sap.ui.core"
+  xmlns:layout="sap.ui.layout">
+   <Page
+    title="Welcome"
+    class="sapUiContentPadding"
+    showHeader="false">
+
+    <VBox
+      justifyContent="Center"
+      alignItems="Center"
+      height="100%">
+
+      <Text text="Choose the Packaging site code" class="sapUiTinyMarginBottom" />
+
+      <Input
+        width="380px"
+        placeholder="Select Packaging Site"
+        showValueHelp="true"
+        valueHelpRequest="onValueHelpRequest"
+        id="packingSiteInput" liveChange="onInputChange"/>
+
+    </VBox>
+
+    <footer>
+      <Bar>
+        <contentRight>
+          <Button
+            text="Continue"
+            type="Emphasized"
+            press="onContinuePress"
+            icon="sap-icon://navigation-right-arrow" id="continue"/>
+        </contentRight>
+      </Bar>
+    </footer>
+
+  </Page>
+</mvc:View>
